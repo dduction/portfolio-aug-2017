@@ -71,5 +71,8 @@
 
   // hero parallax
 
+  var scroll = new Smooth({ native: true, preload: true });
+  scroll.init();
+  
   var scene = document.getElementById('hero');
   var parallax = new Parallax(scene);

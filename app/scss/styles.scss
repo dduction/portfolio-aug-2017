@@ -2,11 +2,12 @@
 @import "variables";
 
 body {
-  position: relative;
+  position: absolute;
   color: white;
   background: $selection;
   font-family: $font-def;
   font-size: 100%;
+  overflow: scroll;
   &.noscroll {
       height: 100vh;
       overflow: hidden;

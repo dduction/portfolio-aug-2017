@@ -71,8 +71,20 @@
 
   // hero parallax
 
-  var scroll = new Smooth({ native: true, preload: true });
-  scroll.init();
+  var options = {
+    speed: 1,
+    damping: 0.1,
+    overscrollDamping: 0.2,
+    thumbMinSize: 20,
+    renderByPixels: true,
+    alwaysShowTracks: false,
+    continuousScrolling: 'auto',
+    overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : 'none',
+    overscrollEffectColor: '#87ceeb',
+};
+
+  Scrollbar.initAll(options);
+  
   
   var scene = document.getElementById('hero');
   var parallax = new Parallax(scene);

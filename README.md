@@ -1,1 +1,1 @@
-# Franklin Farahani's August 2017 Portfolio Design
+August 2017 Portfolio Design

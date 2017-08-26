@@ -79,11 +79,15 @@
     renderByPixels: true,
     alwaysShowTracks: false,
     continuousScrolling: 'auto',
-    overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : 'none',
+    overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : false,
     overscrollEffectColor: '#87ceeb',
 };
 
-  Scrollbar.initAll(options);
+var scrollbar = Scrollbar.init(document.body,options);
+
+  function ffScrollTo(e) {
+    scrollbar.scrollIntoView(document.querySelector(e.getAttribute("href")));
+  }
   
   
   var scene = document.getElementById('hero');

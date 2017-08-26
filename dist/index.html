@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
 
-<body>
+<body scrollbar>
     <header class="header">
         <nav><a href="/" class="header__logo"><img src="images/logo.svg" alt="Franklin Farahani Logo"></a></nav>
         <nav class="header__nav">
@@ -22,7 +22,8 @@
     </header>
     <main>
         <section id="hero" data-pointer-events="true">
-            <canvas id="canvas"></canvas>
+            <!-- <canvas id="canvas"></canvas> -->
+            <div class="noise" data-depth="0.0"></div>
             <div class="pattern__container" data-depth="0.5">
                 <div class="dot__pattern"></div>
             </div>
@@ -95,6 +96,7 @@
             </div>
         </section>
         <section id="contact">
+                <div class="noise"></div>
             <div class="pattern__container">
                 <div class="dot__pattern"></div>
             </div>

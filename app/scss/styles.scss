@@ -704,9 +704,34 @@ section p {
 }
 
 @media only screen and (max-width: $mobile) {
+
+  .hide-on-mobile {
+    display: none;
+  }
+
   .wrapper {
     max-width: 80%;
   }
+
+  #hero {
+    .hero__container {
+      max-width: 88%;
+      top: 27%;
+      h1 {
+        font-size: 18.2vw;
+      }
+      h4 {
+        font-size: 5.3vw;
+        padding-bottom: 1em;
+      }
+      .btn {
+        margin-top: 0em;
+        top: 4em;
+        font-size: .9em;
+      }
+    }
+  }
+
   #about {
     .wrapper {
       height: 100%;

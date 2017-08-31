@@ -131,6 +131,10 @@ body {
   position: relative;
   width: 2rem;
   display: inline-block;
+  transition: all .5s ease-in-out;
+  &:hover {
+    transform: rotate(180deg);
+  }
 }
 
 .header__link {

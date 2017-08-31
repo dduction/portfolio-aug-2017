@@ -353,7 +353,7 @@ div.project:hover .hover-wrapper h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)) ;
   box-sizing: border-box;
   padding: 1em;
   filter: alpha(Opacity=0);
@@ -646,6 +646,18 @@ section p {
   .wrapper {
     max-width: 80%;
   }
+
+  .hover-wrapper {
+    opacity: 1;
+    h3 {
+      font-size: 1.3em;
+      transform: translateY(0em);
+    }
+    h5 {
+      transform: translateY(0em);
+    }
+  }
+
   #about {
     .wrapper {
       height: 75em;
@@ -704,6 +716,9 @@ section p {
 }
 
 @media only screen and (max-width: $mobile) {
+  section {
+    padding: 5em 0;
+  }
 
   .hide-on-mobile {
     display: none;
@@ -731,6 +746,13 @@ section p {
       }
     }
   }
+
+  .item {
+    margin: .5em 0;
+    padding: 0;
+  }
+
+  
 
   #about {
     .wrapper {

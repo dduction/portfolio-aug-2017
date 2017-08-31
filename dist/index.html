@@ -29,13 +29,13 @@
             </div>
             <div class="hero__container" data-depth="0.2">
                 <hgroup>
-                    <h4>Hi, I'm Franklin Farahani.</h4>
+                    <h4><span class="hide-on-mobile">Hi, I'm </span>Franklin Farahani<span class="hide-on-mobile">.</span></h4>
                     <h1>Web Designer</h1>
                     <h1>
-                        <span class="hero__slash"><span class="grad__1">&#5867;</span><span class="grad__2">&#5867;</span><span class="grad__3">&#47;</span></span>Developer
+                        <span class="hide-on-mobile"><span class="hero__slash"><span class="grad__1">&middot;</span><span class="grad__2">&middot;</span><span class="grad__3">&#47;</span></span></span>Developer
                     </h1>
                 </hgroup>
-                <a href="#work" class="section-cta btn" onclick="ffScrollTo(this);">Check Me Out</a>
+                <span class="hide-on-mobile"><a href="#work" class="section-cta btn" onclick="ffScrollTo(this);">Check Me Out</a></span>
             </div>
             <div class="arrow bounce">
                 <a class="fa fa-angle-down fa-3x"></a>
@@ -43,7 +43,7 @@
         </section>
 
         <section id="work" class="section-light">
-            <div class="content">
+            <div class="wrapper">
                 <h2 class="section-title">Work</h2>
                 <div class="grid">
                     <div class="item">
@@ -75,49 +75,63 @@
         </section>
 
         <section id="about" class="section-light">
-            <div class="content">
-                  <h2 class="section-title">About</h2>
-                  <div class="border">
-                        <div class="photos do-relax" data-speed="-2">
-                            <div class="photo shown" data-order="1">
-                                <div class="img-container">
-                                    <img class="cover" src="images/profile-pic.jpg" alt="Franklin Farahani">
-                                </div>
-                                <span class="name">Franklin Farahani</span>
-                            </div>
-                        </div>               
-                        <div class="about-text shown" data-order="1">
-                             <p>I’m a web developer and designer based in Vancouver, BC with a focus on creating beautiful and easy to use user interfaces.</p>
-                             <p>I discovered my passion for web development as soon as I finished building my first website. My love of the web prompted me to attend the Computer Science and New Media and Web Development programs at Simon Fraser University and BCIT, respectively.</p>
-                             <p>I code every day and I have made it my mission to continue to grow and stay up to date with industry standards. At the moment, I’m especially interested in learning about JavaScript frameworks, specifically React + Redux.</p>
-                             <p>Some of the technologies I often use are JavaScript (ES 2016) and jQuery, Sass, PHP, MySQL, Git, and Gulp.</p>
+            <div class="wrapper">
+                <h2 class="section-title">About</h2>
+                <div class="about__bg">
+
+                    <div class="photo">
+                        <div class="img__container">
+                            <img class="cover" src="images/profile-pic.jpg" alt="Franklin Farahani">
                         </div>
-                   </div>
+                        <span class="img__name">Franklin Farahani</span>
+                    </div>
+
+                    <div class="about__text">
+                        <p>I’m a web developer and designer based in Vancouver, BC with a focus on creating beautiful and easy
+                            to use user interfaces.</p>
+                        <p>I discovered my passion for web development as soon as I finished building my first website. My love
+                            of the web prompted me to attend the Computer Science and New Media and Web Development programs
+                            at Simon Fraser University and BCIT, respectively.</p>
+                        <p>I code every day and I have made it my mission to continue to grow and stay up to date with industry
+                            standards. At the moment, I’m especially interested in learning about JavaScript frameworks,
+                            specifically React + Redux.</p>
+                        <p>Some of the technologies I often use are JavaScript (ES 2016) and jQuery, Sass, PHP, MySQL, Git,
+                            and Gulp.</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="contact">
-                <div class="noise"></div>
+            <div class="noise"></div>
             <div class="pattern__container">
                 <div class="dot__pattern"></div>
             </div>
-            <div class="content">
-                 <h2 class="section-title">Contact</h2>
-                 <div class="contact-wrapper">
+            <div class="wrapper">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-wrapper">
                     <div class="contact-item">
-                         <span class="contact-category">Email</span>
-                         <a href="mailto:me@frankfarahani.ca"><h5>me@frankfarahani.ca</h5></a>
+                        <span class="contact-category">Email</span>
+                        <a href="mailto:me@frankfarahani.ca">
+                            <h5>me@frankfarahani.ca</h5>
+                        </a>
                     </div>
                     <div class="contact-item">
                         <span class="contact-category">Phone</span>
                         <h5>+1 778 772 3507</h5>
                     </div>
                     <ul class="contact-item">
-                        <a href="https://twitter.com/d_duction"><li><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></li></a>
-                        <a href="https://www.linkedin.com/in/franklin-farahani"><li><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></li></a>
-                        <a href="https://github.com/dduction"><li><i class="fa fa-github fa-2x" aria-hidden="true"></i></li></a>
+                        <a href="https://twitter.com/d_duction">
+                            <li><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></li>
+                        </a>
+                        <a href="https://www.linkedin.com/in/franklin-farahani">
+                            <li><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></li>
+                        </a>
+                        <a href="https://github.com/dduction">
+                            <li><i class="fa fa-github fa-2x" aria-hidden="true"></i></li>
+                        </a>
                     </ul>
                     <span class="copyright">&copy; 2017 Franklin Farahani</span>
-                 </div>
+                </div>
             </div>
         </section>
 

@@ -46,7 +46,17 @@
   var scrollbar = Scrollbar.init(document.body, options);
 
   function ffScrollTo(e) {
+    var scrollbar = Scrollbar.init(document.body, options);
     scrollbar.scrollIntoView(document.querySelector(e.getAttribute("href")));
+    setTimeout(function() {
+      document.querySelector('nav').classList.remove('header__menu--active');
+      [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
+  
+        // classList is the key here - contains functions to manipulate
+        // classes on an element
+        el.classList.remove('header__menu--open');
+      });
+    }, 700);
   }
 
   // parallax initialization ================
@@ -67,6 +77,12 @@
       // list of nodes along with a function
       // technically querySelectorAll returns a NodeList not an Array so
       /// doesn't have standard array functions
+      if (!document.querySelector('nav').classList.contains('header__menu--active')) {
+        Scrollbar.destroy();
+      } else {
+        var scrollbar = Scrollbar.init(document.body, options);
+      }
+
       [].map.call(document.querySelectorAll('nav'), function (el) {
 
         // classList is the key here - contains functions to manipulate
@@ -75,12 +91,12 @@
       });
 
       [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
-        
-                // classList is the key here - contains functions to manipulate
-                // classes on an element
-                el.classList.toggle('header__menu--open');
-              });
+
+        // classList is the key here - contains functions to manipulate
+        // classes on an element
+        el.classList.toggle('header__menu--open');
+      });
 
     });
   }
-mobileMenu();
+  mobileMenu();

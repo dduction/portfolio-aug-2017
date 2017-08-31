@@ -59,7 +59,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    height: 8.5em;
+    height: 5em;
     width: 6.5em;
     cursor: pointer;
     span {
@@ -260,7 +260,8 @@ h4 {
 
 .arrow {
   position: absolute;
-  bottom: 2em;
+  bottom: 1em;
+  font-size: 1.5em;
   text-align: center;
   margin: 0;
   color: $purple;
@@ -367,26 +368,20 @@ a.project {
   cursor: url(../images/arrow_fwd.png) 48 48, auto;
 }
 
-a.project:active .hover-wrapper,
 a.project:hover .hover-wrapper,
-div.project:active .hover-wrapper,
 div.project:hover .hover-wrapper {
   filter: alpha(enabled=false);
   opacity: 1;
   transition: opacity 975ms cubic-bezier(.18, 1, .21, 1);
 }
 
-a.project:active .hover-wrapper h5,
 a.project:hover .hover-wrapper h5,
-div.project:active .hover-wrapper h5,
 div.project:hover .hover-wrapper h5 {
   transform: translateY(0);
   transition: transform 975ms cubic-bezier(.18, 1, .21, 1);
 }
 
-a.project:active .hover-wrapper h3,
 a.project:hover .hover-wrapper h3,
-div.project:active .hover-wrapper h3,
 div.project:hover .hover-wrapper h3 {
   transform: translateY(0);
   transition: transform 975ms cubic-bezier(.18, 1, .21, 1) 30ms;
@@ -747,6 +742,9 @@ section p {
         margin-left: 0;
         left: 0;
         max-width: 100%;
+        .img__name {
+          font-size: 1.4em;
+        }
       }
     }
     .about__text {
@@ -775,7 +773,7 @@ section p {
       pointer-events: none;
       ul {
         width: 100%;
-        margin-top: 20vh;
+        margin-top: 32vh;
         float: left;
         padding: 0;
         li {
@@ -798,7 +796,7 @@ section p {
     }
   }
   section {
-    padding: 5em 0;
+    padding: 3em 0;
   }
   .hide-on-mobile {
     display: none;
@@ -838,13 +836,13 @@ section p {
     .about__bg {
       float: none;
       position: static;
-      margin-top: 3.5em;
+      margin-top: 1.5em;
       margin-bottom: 0;
       height: 100%;
       border: none;
       .photo {
         width: 100%;
-        height: 28.7em;
+        height: 60.7vh;
         position: static;
       }
     }

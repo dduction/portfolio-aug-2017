@@ -1,5 +1,5 @@
   //typekit
-  
+
   (function (d) {
     var config = {
         kitId: 'aws5xnr',
@@ -29,48 +29,6 @@
     s.parentNode.insertBefore(tk, s)
   })(document);
 
-// canvas noise effect
-
-  // var canvas = document.getElementById('canvas'),
-  //   ctx = canvas.getContext('2d');
-
-  // function resize() {
-  //   canvas.width = window.innerWidth;
-  //   canvas.height = window.innerHeight;
-  // }
-  // resize();
-  // window.onresize = resize;
-
-  // function noise(ctx) {
-
-  //   var w = ctx.canvas.width,
-  //     h = ctx.canvas.height,
-  //     idata = ctx.createImageData(w, h),
-  //     buffer32 = new Uint32Array(idata.data.buffer),
-  //     len = buffer32.length,
-  //     i = 0;
-
-  //   for (; i < len;)
-  //     buffer32[i++] = ((255 * Math.random()) | 0) << 24;
-
-  //   ctx.putImageData(idata, 0, 0);
-  // }
-
-  // var toggle = true;
-
-  // // added toggle to get 30 FPS instead of 60 FPS
-  // (function loop() {
-  //   toggle = !toggle;
-  //   if (toggle) {
-  //     requestAnimationFrame(loop);
-  //     return;
-  //   }
-  //   noise(ctx);
-  //   requestAnimationFrame(loop);
-  // })();
-
-  // hero parallax
-
   var options = {
     speed: 1,
     damping: 0.1,
@@ -81,14 +39,48 @@
     continuousScrolling: 'auto',
     overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : false,
     overscrollEffectColor: '#87ceeb',
-};
+  };
 
-var scrollbar = Scrollbar.init(document.body,options);
+  // scrollbar ====================
+
+  var scrollbar = Scrollbar.init(document.body, options);
 
   function ffScrollTo(e) {
     scrollbar.scrollIntoView(document.querySelector(e.getAttribute("href")));
   }
-  
-  
+
+  // parallax initialization ================
+
   var scene = document.getElementById('hero');
   var parallax = new Parallax(scene);
+
+  // mobile menu =============================
+
+  function mobileMenu() {
+
+    document.querySelector('#header__menu--hamburger').addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // querySelectorAll returns all the nodes it finds with the selector
+      // however, you can't iterate over querySelectorAll results (!!)
+      // so this is a workaround - call Array.map and pass in the 
+      // list of nodes along with a function
+      // technically querySelectorAll returns a NodeList not an Array so
+      /// doesn't have standard array functions
+      [].map.call(document.querySelectorAll('nav'), function (el) {
+
+        // classList is the key here - contains functions to manipulate
+        // classes on an element
+        el.classList.toggle('header__menu--active');
+      });
+
+      [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
+        
+                // classList is the key here - contains functions to manipulate
+                // classes on an element
+                el.classList.toggle('header__menu--open');
+              });
+
+    });
+  }
+mobileMenu();

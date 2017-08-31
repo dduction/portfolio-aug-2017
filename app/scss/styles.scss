@@ -7,8 +7,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  color: white;
-  background: radial-gradient($dark, black);
+  color: $white;
+  background: radial-gradient($dark, $black);
   font-family: $font-def;
   font-size: 85%;
   overflow: hidden;
@@ -21,19 +21,78 @@ body {
   }
 }
 
+// .header__menu--active {
+//   overflow: hidden;
+//   height: 100vh;
+// }
+
 .header {
-  padding: 1.25rem;
+  padding: 1.50rem;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   align-items: center;
   justify-content: space-between;
   backface-visibility: hidden;
   z-index: 1;
+  nav {
+    float: right;
+    transition: .6s;
+    ul {
+      li {
+        float: left;
+        margin-right: 2.6em;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    &.header__menu--active {
+      left: 0;
+      pointer-events: inherit;
+    }
+  }
+  #header__menu--hamburger {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 8.5em;
+    width: 6.5em;
+    cursor: pointer;
+    span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      top: 2.1em;
+      left: 3.2em;
+      margin-bottom: 5px;
+      position: absolute;
+      background: $white;
+      border-radius: 3px;
+      z-index: 1;
+      transform-origin: 4px 0px;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+      &:first-child {
+        transform-origin: 50% 50%;
+      }
+      &:nth-last-child(2) {
+        top: 2.6em;
+        transform-origin: 50% 50%;
+      }
+    }
+    span.header__menu--open {
+      opacity: 1;
+      transform: rotate(45deg) translate(0px, 0px);
+      background: $dark;
+      &:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(-1px, -4px);
+      }
+    }
+  }
 }
 
 // 568px and up
@@ -44,7 +103,7 @@ body {
   }
 }
 
-.header--sticky {
+.header__sticky {
   position: fixed;
   background-color: #0a0a0b;
   overflow: hidden;
@@ -68,22 +127,10 @@ body {
   margin-left: 0.75rem;
 }
 
-.header__button .icon {
-  font-size: 1.25rem;
-  color: #fff;
-}
-
 .header__logo {
   position: relative;
   width: 2rem;
   display: inline-block;
-}
-
-.header__nav {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  text-align: right;
 }
 
 .header__link {
@@ -93,7 +140,7 @@ body {
   font-weight: 500;
   display: inline-block;
   position: relative;
-  padding: .25rem 0;
+  padding: 1.25rem 0 0.25em;
   transition: all 0.25s cubic-bezier(0.4, 0.25, 0.3, 1), color 125ms cubic-bezier(0.4, 0.25, 0.3, 1);
   +.header__link {
     margin-left: 3.25rem;
@@ -250,7 +297,7 @@ h4 {
 
 .btn {
   color: #fff;
-  background: black;
+  background: $black;
   text-transform: uppercase;
   font-family: $font-sub;
   font-size: .8em;
@@ -265,14 +312,14 @@ h4 {
 }
 
 .btn:hover {
-  color: white;
+  color: $white;
   transform: translateY(-.5em);
 }
 
 .section-light {
   background: $grey-l;
   h2 {
-    color: black;
+    color: $black;
   }
 }
 
@@ -353,7 +400,7 @@ div.project:hover .hover-wrapper h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)) ;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
   box-sizing: border-box;
   padding: 1em;
   filter: alpha(Opacity=0);
@@ -429,7 +476,7 @@ div.project:hover .hover-wrapper h3 {
   position: relative;
   margin-top: 6.5em;
   margin-bottom: 5em;
-  background: white;
+  background: $white;
   .photo {
     box-shadow: 0 25px 84px rgba(14, 14, 14, 0.5);
     transition: .8s;
@@ -539,14 +586,14 @@ section p {
 .contact-category {
   text-align: left;
   clear: both;
-  color: black;
+  color: $black;
   transition: transform 975ms cubic-bezier(0.39, 0.575, 0.565, 1);
   font-family: $font-sub;
   margin-bottom: .8em;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: .2em;
-  background: white;
+  background: $white;
   padding: .15rem 4.5rem .15rem .3rem;
 }
 
@@ -617,6 +664,7 @@ section p {
   }
 }
 
+// Responsive==========================
 @media only screen and (min-width: $ultrahd) {
   html,
   body {
@@ -646,7 +694,6 @@ section p {
   .wrapper {
     max-width: 80%;
   }
-
   .hover-wrapper {
     opacity: 1;
     h3 {
@@ -657,7 +704,6 @@ section p {
       transform: translateY(0em);
     }
   }
-
   #about {
     .wrapper {
       height: 75em;
@@ -677,7 +723,7 @@ section p {
       top: 34em;
       left: 0;
       box-sizing: border-box;
-      background: white;
+      background: $white;
       padding: 6.5em;
       margin: -6.5em;
       width: 100vw;
@@ -707,7 +753,7 @@ section p {
       top: 34em;
       left: 0;
       box-sizing: border-box;
-      background: white;
+      background: $white;
       padding: 5em;
       margin: -5em;
       width: 100vw;
@@ -716,18 +762,50 @@ section p {
 }
 
 @media only screen and (max-width: $mobile) {
+  header {
+    nav {
+      margin-top: 0;
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      top: 0;
+      left: -100vw;
+      overflow: hidden;
+      background: $white;
+      pointer-events: none;
+      ul {
+        width: 100%;
+        margin-top: 20vh;
+        float: left;
+        padding: 0;
+        li {
+          width: 100%;
+          padding: 0;
+          text-align: center;
+          a {
+            color: $black;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+            padding: 3.5vh 0;
+            font-size: 1.6em;
+          }
+        }
+      }
+    }
+    #header__menu--hamburger {
+      display: block !important;
+    }
+  }
   section {
     padding: 5em 0;
   }
-
   .hide-on-mobile {
     display: none;
   }
-
   .wrapper {
     max-width: 80%;
   }
-
   #hero {
     .hero__container {
       max-width: 88%;
@@ -746,14 +824,10 @@ section p {
       }
     }
   }
-
   .item {
     margin: .5em 0;
     padding: 0;
   }
-
-  
-
   #about {
     .wrapper {
       height: 100%;
@@ -776,7 +850,7 @@ section p {
     }
     .about__text {
       position: static;
-      background: white;
+      background: $white;
       width: initial;
       padding: 4em 2.5em;
       margin: -2.5em -2.5em 0em;

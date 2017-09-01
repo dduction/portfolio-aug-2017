@@ -1,6 +1,10 @@
 @import "reset";
 @import "variables";
 // =============================================
+html {
+  min-height: 100%;
+}
+
 body {
   position: fixed !important;
   top: 0;
@@ -21,10 +25,19 @@ body {
   }
 }
 
+.scroll-content {
+  height: 100%;
+}
+
 // .header__menu--active {
 //   overflow: hidden;
 //   height: 100vh;
 // }
+
+.main__bg--fullscreen {
+  position: absolute;
+  max-width: 100%;
+}
 
 .header {
   padding: 1.50rem;
@@ -36,7 +49,7 @@ body {
   align-items: center;
   justify-content: space-between;
   backface-visibility: hidden;
-  z-index: 1;
+  z-index: 10;
   nav {
     float: right;
     transition: .6s;
@@ -171,10 +184,8 @@ body {
   }
 }
 
-@media only screen and (min-width: 80.0625em) {
-  // .header__link+.header__link {
-  //     margin-left: 5rem;
-  // }
+main {
+  height: 100%;
 }
 
 section {
@@ -202,8 +213,8 @@ section {
 
 .pattern__container {
   position: absolute;
-  width: 110%;
-  height: 120vh;
+  width: 99%;
+  height: 100%;
   overflow: hidden;
   z-index: 1;
 }
@@ -211,7 +222,7 @@ section {
 .dot__pattern {
   background-image: url(../images/dot-pattern.png);
   background-position: center;
-  opacity: 0.5;
+  opacity: 0.7;
   width: 100%;
   height: 100%;
 }
@@ -301,11 +312,11 @@ h4 {
 }
 
 .btn {
-  color: #fff;
+  color: $white;
   background: $black;
   text-transform: uppercase;
   font-family: $font-sub;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 700;
   letter-spacing: .2em;
   cursor: pointer;
@@ -314,6 +325,13 @@ h4 {
   text-align: center;
   width: 14em;
   line-height: 3.2em;
+  &.btn--white {
+    color: $black;
+    background: $white;
+    &::hover {
+      color: $black;
+    }
+  }
 }
 
 .btn:hover {
@@ -330,7 +348,7 @@ h4 {
 
 .section-title::before {
   content: '';
-  width: .6em;
+  width: .8em;
   height: 5px;
   display: block;
   margin: 0 0 .5em;
@@ -505,7 +523,7 @@ div.project:hover .hover-wrapper h3 {
     // }
     .img__name {
       position: absolute;
-      font-size: 1.9em;
+      font-size: 1.85em;
       bottom: .7em;
       left: .8em;
       letter-spacing: .13em;
@@ -570,6 +588,7 @@ section p {
   padding: 2em 0;
   list-style: none;
   margin-bottom: 0;
+  width: fit-content;
   a {
     transition: all .2s cubic-bezier(0.39, 0.575, 0.565, 1);
     &:hover {
@@ -642,6 +661,7 @@ section p {
 .noise {
   background: transparent;
   display: block;
+  // fix for later
   height: 100%;
   position: absolute;
   width: 100%;
@@ -747,7 +767,7 @@ section p {
         left: 0;
         max-width: 100%;
         .img__name {
-          font-size: 1.4em;
+          font-size: 1.85em;
         }
       }
     }
@@ -801,12 +821,15 @@ section p {
   }
   section {
     padding: 3em 0;
+    h2 {
+      font-size: 2.6em;
+    }
   }
   .hide-on-mobile {
     display: none;
   }
   .wrapper {
-    max-width: 80%;
+    max-width: 85%;
   }
   #hero {
     .hero__container {
@@ -825,6 +848,9 @@ section p {
         font-size: .9em;
       }
     }
+  }
+  .grid {
+    padding-top: 1.4em;
   }
   .item {
     margin: .5em 0;
@@ -846,8 +872,11 @@ section p {
       border: none;
       .photo {
         width: 100%;
-        height: 60.7vh;
+        height: 65.5vh;
         position: static;
+        .img__name {
+          font-size: 1.3em;
+        }
       }
     }
     .about__text {
@@ -874,3 +903,4 @@ section p {
     font-size: 1.65em;
   }
 }
+

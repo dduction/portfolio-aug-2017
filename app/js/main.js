@@ -44,9 +44,26 @@
   // scrollbar ====================
 
   var scrollbar = Scrollbar.init(document.body, options);
+  function windowResize() {
+    document.querySelector('.scroll-content').style.height = 0;
+    document.querySelector('.scroll-content').style.height = scrollbar.getSize().content.height + 'px';
+  }
+  windowResize();
+  window.onresize = windowResize;
+  
 
   function ffScrollTo(e) {
     var scrollbar = Scrollbar.init(document.body, options);
+    if ((e.getAttribute("href")) == "#") {
+      document.querySelector('nav').classList.remove('header__menu--active');
+      [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
+  
+        // classList is the key here - contains functions to manipulate
+        // classes on an element
+        el.classList.remove('header__menu--open');
+      });
+    }
+    else {
     scrollbar.scrollIntoView(document.querySelector(e.getAttribute("href")));
     setTimeout(function() {
       document.querySelector('nav').classList.remove('header__menu--active');
@@ -57,16 +74,17 @@
         el.classList.remove('header__menu--open');
       });
     }, 700);
-  }
+  }}
 
   // parallax initialization ================
 
-  var scene = document.getElementById('hero');
+  var scene = document.querySelector('.parallax');
   var parallax = new Parallax(scene);
 
   // mobile menu =============================
 
   function mobileMenu() {
+    
 
     document.querySelector('#header__menu--hamburger').addEventListener('click', function (e) {
       e.preventDefault();

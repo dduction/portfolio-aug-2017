@@ -29,31 +29,51 @@
     s.parentNode.insertBefore(tk, s)
   })(document);
 
-  var options = {
-    speed: 1,
-    damping: 0.1,
-    overscrollDamping: 0.2,
-    thumbMinSize: 20,
-    renderByPixels: true,
-    alwaysShowTracks: false,
-    continuousScrolling: 'auto',
-    overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : false,
-    overscrollEffectColor: '#87ceeb',
-  };
 
-  // scrollbar ====================
 
-  var scrollbar = Scrollbar.init(document.body, options);
-  function windowResize() {
-    document.querySelector('.scroll-content').style.height = 0;
-    document.querySelector('.scroll-content').style.height = scrollbar.getSize().content.height + 'px';
-  }
-  windowResize();
-  window.onresize = windowResize;
+
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+
+console.log(isMobileDevice());
+
+    // scrollbar ====================
+
+    var scroll = new Smooth({ native: true, preload: false });
+    scroll.init();
   
+  // var options = {
+  //   speed: 1,
+  //   damping: 0.1,
+  //   overscrollDamping: 0.2,
+  //   thumbMinSize: 20,
+  //   renderByPixels: true,
+  //   alwaysShowTracks: false,
+  //   continuousScrolling: 'auto',
+  //   overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : false,
+  //   overscrollEffectColor: '#87ceeb',
+  // };
+
+  // function windowResize() {
+  //   document.querySelector('main').style.height = 0;
+  //   document.querySelector('main').style.height = scroll.getSize().content.height + 'px';
+  // }
+  // windowResize();
+  // window.onresize = windowResize;
+  
+//   function ffScrollTo(e) {
+//     // e.preventDefault();
+//     var t = document.querySelector("#work")
+//       , i = t.getBoundingClientRect().top;
+//     window.scrollTo(0, i)
+// }
 
   function ffScrollTo(e) {
-    var scrollbar = Scrollbar.init(document.body, options);
+    var t = document.querySelector(e.getAttribute("href"))
+    , i = t.getBoundingClientRect().top;
+    scroll.on();
     if ((e.getAttribute("href")) == "#") {
       document.querySelector('nav').classList.remove('header__menu--active');
       [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
@@ -64,7 +84,7 @@
       });
     }
     else {
-    scrollbar.scrollIntoView(document.querySelector(e.getAttribute("href")));
+      window.scrollTo(0, i);
     setTimeout(function() {
       document.querySelector('nav').classList.remove('header__menu--active');
       [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
@@ -75,6 +95,12 @@
       });
     }, 700);
   }}
+
+  function ffContextScrollTo(e) {
+    var t = document.querySelector(e.getAttribute("href"))
+    , i = t.offsetTop;
+    window.scrollTo(0, i);
+  }
 
   // parallax initialization ================
 
@@ -96,9 +122,11 @@
       // technically querySelectorAll returns a NodeList not an Array so
       /// doesn't have standard array functions
       if (!document.querySelector('nav').classList.contains('header__menu--active')) {
-        Scrollbar.destroy();
+        document.body.classList.remove("y-scroll");
+        document.body.classList.add("hide");
       } else {
-        var scrollbar = Scrollbar.init(document.body, options);
+        document.body.classList.add("y-scroll");
+        document.body.classList.remove("hide");
       }
 
       [].map.call(document.querySelectorAll('nav'), function (el) {

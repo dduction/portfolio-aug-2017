@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/pace-theme-minimal.css">
+    <link rel="stylesheet" href="css/baptiste.css">
     <link rel="stylesheet" href="css/smooth-scrollbar.css">
     <link rel="stylesheet" href="css/portfolio-icons.css">
     <link rel="stylesheet" href="css/styles.min.css">
@@ -54,7 +55,7 @@
     </script>
 </head>
 
-<body scrollbar>
+<body>
     <header class="header">
         <div class="header__left"><a href="/" class="header__logo"><img src="images/logo.svg" alt="Franklin Farahani Logo"></a></div>
         <nav role="navigation">
@@ -74,23 +75,21 @@
             <span></span>
         </div>
     </header>
-    <main>
+    <main class="vs-section">
         <section id="hero" class="parallax" data-pointer-events="true">
             <div class="noise" data-depth="0.0"></div>
-            <div class="layer pattern__container" data-depth="0.2">
+            <div class="layer pattern__container" data-depth="0.5">
                 <div class="dot__pattern"></div>
             </div>
             <div class="hero__container" data-depth="0.2">
                 <hgroup>
                     <h4><span class="hide-on-mobile">Hi, I'm </span>Franklin Farahani<span class="hide-on-mobile">.</span></h4>
-                    <h1>Web Designer</h1>
-                    <h1>
-                        <span class="hide-on-mobile"><span class="hero__slash"><span class="grad__1">&middot;</span><span class="grad__2">&middot;</span><span class="grad__3">&#47;</span></span></span>Developer</h1>
+                    <h1>Front<span class="grad__3">&#45;</span>end<br>Developer</h1>
                 </hgroup>
                 <span class="hide-on-mobile"><a href="#work" class="section-cta btn" onclick="ffScrollTo(this);">Check Me Out</a></span>
             </div>
             <div class="arrow bounce">
-                <a class="icon-chevron-down"></a>
+                <a href="#work" class="icon-chevron-down" onclick="ffContextScrollTo(this);"></a>
             </div>
         </section>
 
@@ -121,7 +120,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="work.html" class="section-cta btn">See More</a>
+                <a href="#contact" class="section-cta btn" onclick="ffContextScrollTo(this);">Contact Me</a>
             </div>
 
         </section>
@@ -182,7 +181,7 @@
                             <li><i class="icon-sm-github" aria-hidden="true"></i></li>
                         </a>
                     </ul>
-                    <span class="copyright">&copy; 2017 Franklin Farahani</span>
+                    <span class="copyright">&copy; 2018 Franklin Farahani</span>
                 </div>
             </div>
         </section>
@@ -192,8 +191,8 @@
     <script src="js/pace.min.js"></script>
     <!-- <script src="js/grained.js"></script> -->
     <script src="js/parallax.js"></script>
-    <script src="js/smooth-scrollbar.js"></script>
-    <!-- <script src="js/smooth-scrolling.js"></script> -->
+    <!-- <script src="js/smooth-scrollbar.js"></script> -->
+    <script src="js/smooth-scrolling.js"></script>
     <script src="js/main.js"></script>
 
 

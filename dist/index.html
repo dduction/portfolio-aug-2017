@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vancouver Web Designer and Developer | Franklin Farahani</title>
-    <meta content="I'm a web developer/designer based in Vancouver, Canada. I specialize in creating static and WordPress websites."
+    <title>Vancouver Web Developer | Franklin Farahani</title>
+    <meta content="I'm a web developer based in Vancouver, Canada. I specialize in creating static and WordPress websites."
         name="Description">
     <!-- Facebook meta -->
     <meta content="Franklin Farahani" property="og:site_name">
     <meta content="Franklin Farahani" property="og:title">
-    <meta content="Web developer/designer based in Vancouver, Canada" property="og:description">
+    <meta content="Web developer based in Vancouver, Canada" property="og:description">
     <meta content="http://www.frankfarahani.ca" property="og:url">
     <meta content="website" property="og:type">
     <meta content="http://www.frankfarahani.ca/images/meta/facebook.jpg" property="og:image">
@@ -21,7 +21,7 @@
     <meta content="@d_duction" name="twitter:site">
     <meta content="@d_duction" name="twitter:creator">
     <meta content="Franklin Farahani" name="twitter:title">
-    <meta content="Web developer/designer based in Vancouver, Canada" name="twitter:text:description">
+    <meta content="Web developer based in Vancouver, Canada" name="twitter:text:description">
     <meta content="http://www.frankfarahani.ca/images/meta/twitter.jpg" name="twitter:image">
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="images/favicon/favicon16.png" sizes="16x16">
@@ -46,7 +46,7 @@
     </script>
 </head>
 
-<body scrollbar>
+<body>
     <header class="header">
         <div class="header__left"><a href="/" class="header__logo"><img src="images/logo.svg" alt="Franklin Farahani Logo"></a></div>
         <nav role="navigation">
@@ -66,23 +66,21 @@
             <span></span>
         </div>
     </header>
-    <main>
+    <main class="vs-section">
         <section id="hero" class="parallax" data-pointer-events="true">
             <div class="noise" data-depth="0.0"></div>
-            <div class="layer pattern__container" data-depth="0.2">
+            <div class="layer pattern__container" data-depth="0.5">
                 <div class="dot__pattern"></div>
             </div>
             <div class="hero__container" data-depth="0.2">
                 <hgroup>
                     <h4><span class="hide-on-mobile">Hi, I'm </span>Franklin Farahani<span class="hide-on-mobile">.</span></h4>
-                    <h1>Web Designer</h1>
-                    <h1>
-                        <span class="hide-on-mobile"><span class="hero__slash"><span class="grad__1">&middot;</span><span class="grad__2">&middot;</span><span class="grad__3">&#47;</span></span></span>Developer</h1>
+                    <h1>Front<span class="grad__3">&#45;</span>end<br>Developer</h1>
                 </hgroup>
-                <span class="hide-on-mobile"><a href="#work" class="section-cta btn" onclick="ffScrollTo(this);">Check Me Out</a></span>
+                <span class="hide-on-mobile"><a href="#work" class="section-cta btn" onclick="ffContextScrollTo(this);">Check Me Out</a></span>
             </div>
             <div class="arrow bounce">
-                <a class="icon-chevron-down"></a>
+                <a href="#work" class="icon-chevron-down" onclick="ffContextScrollTo(this);"></a>
             </div>
         </section>
 
@@ -113,7 +111,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="work.html" class="section-cta btn">See More</a>
+                <a href="#contact" class="section-cta btn" onclick="ffContextScrollTo(this);">Contact Me</a>
             </div>
 
         </section>
@@ -131,15 +129,14 @@
                     </div>
 
                     <div class="about__text">
-                        <p>I’m a web developer and designer based in Vancouver, BC with a focus on creating beautiful and easy
-                            to use user interfaces.</p>
+                        <p>I’m a web developer based in Vancouver, BC with a focus on creating beautiful and intuitive UI.</p>
                         <p>I discovered my passion for web development as soon as I finished building my first website. My love
                             of the web prompted me to attend the Computer Science and New Media and Web Development programs
                             at Simon Fraser University and BCIT, respectively.</p>
                         <p>I code every day and I have made it my mission to continue to grow and stay up to date with industry
                             standards. At the moment, I’m especially interested in learning about JavaScript frameworks,
-                            specifically React + Redux.</p>
-                        <p>Some of the technologies I often use are JavaScript (ES 2016) and jQuery, Sass, PHP, MySQL, Git,
+                            specifically React.</p>
+                        <p>Some of the technologies I often use are JavaScript (ES 2016), React, Webpack, jQuery, Sass, WordPress, Git,
                             and Gulp.</p>
                     </div>
                 </div>
@@ -156,7 +153,7 @@
                     <div class="contact-item">
                         <span class="contact-category">Email</span>
                         <a href="mailto:me@frankfarahani.ca">
-                            <h5>me@frankfarahani.ca</h5>
+                            <h5>me@franklinfarahani.ca</h5>
                         </a>
                     </div>
                     <div class="contact-item">
@@ -164,17 +161,17 @@
                         <h5>+1 778 772 3507</h5>
                     </div>
                     <ul class="contact-item">
-                        <a href="https://twitter.com/d_duction" target="_blank">
+                        <a href="https://twitter.com/frankfarahani" target="_blank">
                             <li><i class="icon-sm-twitter" aria-hidden="true"></i></li>
                         </a>
                         <a href="https://www.linkedin.com/in/franklin-farahani" target="_blank">
                             <li><i class="icon-sm-linkedin" aria-hidden="true"></i></li>
                         </a>
-                        <a href="https://github.com/dduction" target="_blank">
+                        <a href="https://github.com/franklinfarahani" target="_blank">
                             <li><i class="icon-sm-github" aria-hidden="true"></i></li>
                         </a>
                     </ul>
-                    <span class="copyright">&copy; 2017 Franklin Farahani</span>
+                    <span class="copyright">&copy; 2018 Franklin Farahani</span>
                 </div>
             </div>
         </section>

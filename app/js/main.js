@@ -37,8 +37,6 @@ function isMobileDevice() {
     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 };
 
-console.log(isMobileDevice());
-
     // scrollbar ====================
 
     var scroll = new Smooth({ native: true, preload: false });
@@ -85,6 +83,8 @@ console.log(isMobileDevice());
     }
     else {
       window.scrollTo(0, i);
+      document.body.classList.add("y-scroll");
+      document.body.classList.remove("hide");
     setTimeout(function() {
       document.querySelector('nav').classList.remove('header__menu--active');
       [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {

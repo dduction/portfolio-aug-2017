@@ -1,4 +1,4 @@
-  //typekit
+  //typekit ====================
 
   (function (d) {
     var config = {
@@ -31,76 +31,60 @@
 
 
 
+  //function to check whether the device is a phone (EXPERIMENTAL) ====================
 
-
-function isMobileDevice() {
+  function isMobileDevice() {
     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
+  };
 
-    // scrollbar ====================
+  // scrollbar (Disabled due to UX issues) ====================
 
-    var scroll = new Smooth({ native: true, preload: false });
-    scroll.init();
-  
-  // var options = {
-  //   speed: 1,
-  //   damping: 0.1,
-  //   overscrollDamping: 0.2,
-  //   thumbMinSize: 20,
-  //   renderByPixels: true,
-  //   alwaysShowTracks: false,
-  //   continuousScrolling: 'auto',
-  //   overscrollEffect: navigator.userAgent.match(/Android/) ? 'glow' : false,
-  //   overscrollEffectColor: '#87ceeb',
-  // };
+  // var scroll = new Smooth({ native: true, preload: false });
+  // scroll.init();
 
-  // function windowResize() {
-  //   document.querySelector('main').style.height = 0;
-  //   document.querySelector('main').style.height = scroll.getSize().content.height + 'px';
-  // }
-  // windowResize();
-  // window.onresize = windowResize;
-  
-//   function ffScrollTo(e) {
-//     // e.preventDefault();
-//     var t = document.querySelector("#work")
-//       , i = t.getBoundingClientRect().top;
-//     window.scrollTo(0, i)
-// }
+  //Navigation menu scroll function for mobile devices ====================
 
   function ffScrollTo(e) {
-    var t = document.querySelector(e.getAttribute("href"))
-    , i = t.getBoundingClientRect().top;
-    scroll.on();
+    var t = document.querySelector(e.getAttribute("href")),
+      i = t.getBoundingClientRect().top;
     if ((e.getAttribute("href")) == "#") {
       document.querySelector('nav').classList.remove('header__menu--active');
       [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
-  
+
         // classList is the key here - contains functions to manipulate
         // classes on an element
         el.classList.remove('header__menu--open');
       });
-    }
-    else {
-      window.scrollTo(0, i);
+    } else {
+      t.scrollIntoView({
+        behavior: 'smooth'
+      });
       document.body.classList.add("y-scroll");
       document.body.classList.remove("hide");
-    setTimeout(function() {
-      document.querySelector('nav').classList.remove('header__menu--active');
-      [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
-  
-        // classList is the key here - contains functions to manipulate
-        // classes on an element
-        el.classList.remove('header__menu--open');
-      });
-    }, 700);
-  }}
+      setTimeout(function () {
+        document.querySelector('nav').classList.remove('header__menu--active');
+        [].map.call(document.querySelectorAll('#header__menu--hamburger span'), function (el) {
 
-  function ffContextScrollTo(e) {
-    var t = document.querySelector(e.getAttribute("href"))
-    , i = t.offsetTop;
-    window.scrollTo(0, i);
+          // classList is the key here - contains functions to manipulate
+          // classes on an element
+          el.classList.remove('header__menu--open');
+        });
+      }, 700);
+    }
   }
+
+  // Smooth scrolling to anchor links
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
 
   // parallax initialization ================
 
@@ -110,7 +94,7 @@ function isMobileDevice() {
   // mobile menu =============================
 
   function mobileMenu() {
-    
+
 
     document.querySelector('#header__menu--hamburger').addEventListener('click', function (e) {
       e.preventDefault();

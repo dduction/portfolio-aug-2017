@@ -11,7 +11,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
-var runSequence = require('run-sequence');
 
 // Development Tasks 
 // -----------------
@@ -95,17 +94,10 @@ gulp.task('clean:dist', function() {
 // Build Sequences
 // ---------------
 
-gulp.task('default', function(callback) {
-  runSequence(['sass', 'browserSync'], 'watch',
-    callback
-  )
-})
+gulp.task('default',
+  gulp.series(gulp.parallel('sass', 'browserSync'), 'watch', 
+  function(callback) {callback}));
 
-gulp.task('build', function(callback) {
-  runSequence(
-    'clean:dist',
-    'sass',
-    ['useref', 'images', 'fonts'],
-    callback
-  )
-})
+gulp.task('build',
+  gulp.series('clean:dist', 'sass', gulp.parallel('useref', 'images', 'fonts'), 
+  function(callback) {callback}));

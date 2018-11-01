@@ -16,12 +16,13 @@ var del = require('del');
 // -----------------
 
 // Start browserSync server
-gulp.task('browserSync', function() {
-  browserSync({
+gulp.task('browserSync', function(done) {
+  browserSync.init({
     server: {
       baseDir: 'app'
     }
   })
+  done();
 })
 
 gulp.task('sass', function() {
@@ -46,10 +47,10 @@ gulp.task('sass', function() {
 
 // Watchers
 gulp.task('watch', function() {
-  gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
-})
+  gulp.watch('app/scss/**/*.scss', gulp.series('sass'));
+  gulp.watch('app/*.html').on('change', browserSync.reload);
+  gulp.watch('app/js/**/*.js').on('change', browserSync.reload);
+});
 
 // Optimization Tasks 
 // ------------------
@@ -94,9 +95,8 @@ gulp.task('clean:dist', function() {
 // Build Sequences
 // ---------------
 
-gulp.task('default',
-  gulp.series(gulp.parallel('sass', 'browserSync'), 'watch', 
-  function(callback) {callback}));
+gulp.task('default', gulp.series(gulp.parallel('sass', 'browserSync'), 'watch', function(done){
+  done();
+}));
 
-gulp.task('build',
-  gulp.series('clean:dist', 'sass', gulp.parallel('useref', 'images', 'fonts')));
+gulp.task('build', gulp.series('clean:dist', 'sass', gulp.parallel('useref', 'images', 'fonts')));

@@ -524,7 +524,7 @@ div.project:hover .hover-wrapper h3 {
   border: 1px solid $grey-l;
   float: right;
   width: 58em;
-  height: 40.6em;
+  height: 34.6em;
   overflow: visible;
   padding-left: 13em;
   padding-right: 4.5em;
@@ -533,6 +533,7 @@ div.project:hover .hover-wrapper h3 {
   margin-top: 6.5em;
   margin-bottom: 5em;
   background: $white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   .photo {
     box-shadow: 0 25px 84px rgba(14, 14, 14, 0.5);
     transition: .8s;
